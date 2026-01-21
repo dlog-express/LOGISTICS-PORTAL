@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-LOG EXPRESS | Global Heavy-Lift & Vehicle Logistics</title>
+    <style>
+        /* THE DESIGN DNA: INDUSTRIAL & TRUSTED */
+        :root { 
+            --dhl-yellow: #FFCC00; 
+            --dhl-red: #D40511; 
+            --dark-grey: #333333; 
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        
+        /* NAVIGATION BAR */
+        nav { 
+            background: var(--dhl-yellow); 
+            padding: 15px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 4px solid var(--dhl-red); 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 26px; font-weight: 900; color: var(--dhl-red); font-style: italic; text-transform: uppercase; }
+        .logo span { color: var(--dark-grey); }
+        nav .links a { text-decoration: none; color: var(--dark-grey); font-weight: 700; margin-left: 25px; font-size: 13px; text-transform: uppercase; }
+
+        /* HERO SECTION */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; 
+            background-position: center; 
+            height: 85vh; 
+            display: flex; 
+            align-items: center; 
+            padding: 0 10%; 
+            color: white;
+        }
+        .hero-content { max-width: 800px; }
+        .hero h1 { font-size: 64px; font-weight: 900; font-style: italic; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; }
+        .hero p { font-size: 20px; margin-bottom: 35px; color: #eee; line-height: 1.5; }
+
+        /* BUTTONS */
+        .btn { display: inline-block; padding: 18px 40px; border-radius: 2px; text-decoration: none; font-weight: 800; text-transform: uppercase; transition: 0.3s; cursor: pointer; border: none; }
+        .btn-red { background: var(--dhl-red); color: white; margin-right: 15px; }
+        .btn-outline { border: 2px solid white; color: white; }
+        .btn:hover { opacity: 0.9; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        /* FEATURES SECTION */
+        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 100px 10%; background: #ffffff; }
+        .card { padding: 40px; border-top: 5px solid var(--dhl-yellow); background: #fdfdfd; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--dhl-red); margin-bottom: 15px; font-style: italic; text-transform: uppercase; font-size: 20px; }
+        .card p { font-size: 15px; color: #555; line-height: 1.6; }
+
+        footer { background: var(--dark-grey); color: #999; padding: 50px 10%; font-size: 13px; text-align: center; border-top: 5px solid var(--dhl-red); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">D-LOG <span>EXPRESS</span></div>
+    <div class="links">
+        <a href="index.html">Home</a>
+        <a href="tracking.html">Track Shipment</a>
+        <a href="login.html" style="background: var(--dhl-red); color: white; padding: 10px 20px; border-radius: 2px;">Portal Login</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Global Vehicle & Heavy Freight Solutions</h1>
+        <p>Specialized logistics for oversized cargo, automotive fleets, and industrial machinery. We provide secure Roll-on/Roll-off (RoRo) and containerized transport across 220+ territories.</p>
+        <a href="login.html" class="btn btn-red">Initiate Shipment</a>
+        <a href="tracking.html" class="btn btn-outline">Live Tracking</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="card">
+        <h3>Vehicle Logistics</h3>
+
+        <p>Expert handling for luxury vehicles, construction equipment, and fleet shipments with end-to-end visibility and RoRo capabilities.</p>
+    </div>
+    <div class="card">
+        <h3>Heavy-Lift Cargo</h3>
+        <p>Specialized transport for oversized industrial loads, machinery, and project cargo requiring expert documentation and handling.</p>
+    </div>
+    <div class="card">
+        <h3>Global Forwarding</h3>
+        <p>Seamless customs brokerage and multi-modal freight solutions ensuring your high-value assets reach their destination port without delay.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 D-LOG GLOBAL FORWARDING | AUTHORIZED CUSTOMER PORTAL | SECURE DATA ENCRYPTION</p>
+    <p style="margin-top: 10px; font-size: 11px;">Partnered with leading global carriers to provide world-class logistics infrastructure.</p>
+</footer>
+
+</body>
+</html>

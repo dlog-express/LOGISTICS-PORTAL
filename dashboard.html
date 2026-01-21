@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Dashboard | D-LOG Express</title>
+    <style>
+        :root { --dhl-yellow: #FFCC00; --dhl-red: #D40511; --dark: #333; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f0f2f5; }
+        
+        /* Dashboard Header */
+        .header { background: var(--dark); color: white; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 5px solid var(--dhl-red); }
+        .user-info { font-size: 14px; font-weight: bold; }
+        
+        /* Grid Layout */
+        .container { padding: 50px 10%; }
+        .welcome-msg { margin-bottom: 30px; border-left: 5px solid var(--dhl-yellow); padding-left: 15px; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        
+        /* Dashboard Cards */
+        .menu-card { background: white; padding: 40px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; text-decoration: none; color: inherit; border: 1px solid #eee; }
+        .menu-card:hover { transform: translateY(-5px); border-color: var(--dhl-red); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .icon { font-size: 40px; margin-bottom: 15px; display: block; }
+        .menu-card h3 { color: var(--dhl-red); text-transform: uppercase; margin-bottom: 10px; font-style: italic; }
+        .menu-card p { font-size: 14px; color: #666; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="font-weight: 900; font-style: italic; font-size: 20px;">D-LOG <span style="color: var(--dhl-yellow);">EXPRESS</span></div>
+    <div class="user-info">Logged in as: Authorized User</div>
+</div>
+
+<div class="container">
+    <div class="welcome-msg">
+        <h1>Client Command Center</h1>
+        <p>Manage your heavy-lift logistics and automotive transport fleet.</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <a href="create-shipment.html" class="menu-card">
+            <span class="icon">📦</span>
+            <h3>Book New Shipment</h3>
+            <p>Initiate vehicle transport or oversized cargo logistics. Generate Bill of Lading.</p>
+        </a>
+
+        <a href="tracking.html" class="menu-card">
+            <span class="icon">📍</span>
+            <h3>Live Fleet Tracking</h3>
+            <p>Monitor real-time status of your active cargo across global port terminals.</p>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

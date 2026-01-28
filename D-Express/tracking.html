@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Portal | D-LOG EXPRESS</title>
+    <style>
+        :root { --brand-red: #D40511; --dark: #1a1a1a; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; text-align: center; padding: 50px; margin: 0; }
+        .card { background: white; max-width: 400px; margin: 0 auto; padding: 40px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 5px solid var(--brand-red); }
+        h2 { color: var(--dark); margin-bottom: 10px; text-transform: uppercase; font-weight: 800; }
+        p { color: #666; font-size: 0.9rem; }
+        input { width: 100%; padding: 15px; margin: 20px 0; border: 2px solid #ddd; border-radius: 4px; font-size: 1.2rem; text-align: center; box-sizing: border-box; font-weight: bold; letter-spacing: 2px; }
+        input:focus { border-color: var(--brand-red); outline: none; }
+        button { background: var(--brand-red); color: white; padding: 18px; width: 100%; border: none; border-radius: 4px; font-size: 1rem; font-weight: bold; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+        button:hover { background: #b0040e; }
+        
+        /* Error & Success Messages */
+        #status { margin-top: 25px; min-height: 40px; font-size: 0.9rem; line-height: 1.4; }
+        .error-box { color: #842029; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 12px; border-radius: 4px; font-weight: 600; }
+        .loading-text { color: var(--brand-red); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>SHIPMENT TRACKING</h2>
+        <p>Enter your 6-digit Tracking ID</p>
+        
+        <input type="text" id="trackID" placeholder="000000" maxlength="6">
+        
+        <button onclick="processTracking()">VERIFY SHIPMENT</button>
+        
+        <div id="status"></div>
+    </div>
+
+    <script>
+        function processTracking() {
+            const input = document.getElementById('trackID');
+            const display = document.getElementById('status');
+            const code = input.value.trim();
+
+            // Clear display every time button is clicked
+            display.innerHTML = '';
+
+            // 1. STRICTOR VALIDATION (Must be 6 digits)
+            if (code.length !== 6 || isNaN(code)) {
+                display.innerHTML = '<div class="error-box">ERROR: Please enter a valid 6-digit numerical ID.</div>';
+                return;
+            }
+
+            // 2. THE GATEKEEPER LOGIC
+            // Only '223344' is allowed through.
+            if (code === "223344") {
+                display.innerHTML = '<span class="loading-text">ID VERIFIED. Accessing Secure Manifest...</span>';
+                
+                setTimeout(() => {
+                    window.location.href = code + ".html";
+                }, 800);
+            } 
+            else {
+                // 3. THE "NOT AVAILABLE" ERROR
+                display.innerHTML = `
+                    <div class="error-box">
+                        TRACKING NUMBER NOT AVAILABLE<br>
+                        <span style="font-weight:normal; font-size:0.8rem;">
+                            The ID <b>${code}</b> does not match any active shipment in our global system.
+                        </span>
+                    </div>`;
+            }
+        }
+
+        // Allow user to press "Enter" key to track
+        document.getElementById('trackID').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                processTracking();
+            }
+        });
+    </script>
+</body>
+</div>
+ <h3 style="color: #333; margin-top: 0; font-family: sans-serif;">Need Assistance with this Shipment?</h3>
+    <p style="color: #666; font-size: 10px; margin-bottom: 20px;">Our logistics agents are available 24/7 to provide real-time updates on your shipments.</p>
+    
+    <button onclick="jivo_api.open();" style="background: #D40511; color: white; border: none; padding: 13px 34px; font-size: 11.5px; font-weight: bold; border-radius: 5px; cursor: pointer; box-shadow: 0 4px 15px rgba(212, 5, 17, 0.4); width: 100%; text-transform: uppercase; letter-spacing: 1px;">
+        💬 Chat with Customer Care Now
+    </button>
+</div>
+<script src="//code.jivosite.com/widget/MIHP97F4B2" async></script>
+
+</html>

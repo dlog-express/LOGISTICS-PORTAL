@@ -2,38 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Secure Portal Login | D-LOG Express</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-LOG | Secure Authentication</title>
     <style>
-        :root { --brand-yellow: #FFCC00; --brand-red: #D40511; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        
-        .login-card { background: white; width: 400px; padding: 40px; border-top: 10px solid var(--brand-red); box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
-        .brand { font-weight: 900; font-style: italic; color: var(--brand-red); font-size: 28px; margin-bottom: 25px; letter-spacing: -1px; }
-        .brand span { color: #333; }
-        
-        h2 { font-size: 20px; color: #333; margin-bottom: 10px; }
-        p { font-size: 14px; color: #666; margin-bottom: 30px; line-height: 1.5; }
-        
-        .google-login {
-            display: flex; align-items: center; justify-content: center;
-            background: white; border: 1px solid #dadce0; color: #3c4043;
-            padding: 12px; border-radius: 4px; text-decoration: none; font-weight: 600;
-            transition: background 0.2s;
+        :root { --brand-red: #D40511; --bg: #0d0d0d; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+        .spinner {
+            width: 45px; height: 45px;
+            border: 3px solid rgba(255,255,255,0.05);
+            border-top: 3px solid var(--brand-red);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 25px;
         }
-        .google-login:hover { background: #f8f9fa; border-color: var(--brand-red); }
-        .g-icon { width: 18px; margin-right: 12px; }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        #status-text { font-family: 'Courier New', monospace; font-size: 13px; letter-spacing: 2px; color: #888; text-transform: uppercase; }
+        .success { color: #28a745 !important; }
+
+        .progress-container { width: 220px; height: 2px; background: #222; margin-top: 20px; border-radius: 10px; overflow: hidden; }
+        .progress-fill { width: 0%; height: 100%; background: var(--brand-red); transition: width 0.4s ease; }
     </style>
 </head>
 <body>
-    <div class="login-card">
-        <div class="brand">D-LOG <span>EXPRESS</span></div>
-        <h2>Customer Portal Access</h2>
-        <p>Verified Identity Required. Please authenticate to manage your vehicle shipments and heavy-lift logistics.</p>
-        
-        <a href="dashboard.html" class="google-login">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="g-icon" alt="G">
-            Sign in with Google Account
-        </a>
+
+    <div class="spinner"></div>
+    <div id="status-text">INITIALIZING ENCRYPTION...</div>
+    <div class="progress-container">
+        <div id="progress-fill" class="progress-fill"></div>
     </div>
+
+    <script>
+        const logs = [
+            "CONNECTING.................",
+            "VERIFYING login........",
+            "please wait........",
+            "Successfully Authenticated",
+            "NOW START YOUR SHIPMENT..."
+        ];
+
+        let currentStep = 0;
+        const textElement = document.getElementById('status-text');
+        const fillElement = document.getElementById('progress-fill');
+
+        function runSequence() {
+            if (currentStep < logs.length) {
+                textElement.innerText = logs[currentStep];
+                fillElement.style.width = ((currentStep + 1) / logs.length) * 100 + "%";
+                
+                if (currentStep >= 3) textElement.classList.add('success');
+
+                currentStep++;
+                setTimeout(runSequence, 900); // Speed of the roll
+            } else {
+                // MOVE TO YOUR DASHBOARD
+                window.location.href = "create-shipment.html"; 
+            }
+        }
+
+        window.onload = runSequence;
+    </script>
 </body>
 </html>

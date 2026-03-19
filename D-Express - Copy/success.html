@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-LOG Express | Transaction Verified</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dlog-red: #D40511;
+            --dlog-dark: #121212;
+            --success-green: #2E7D32;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0; padding: 0; background-color: #0F0F0F; color: #333;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+        }
+
+        .success-wrapper {
+            max-width: 480px; width: 90%; background: white; border-radius: 12px;
+            overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .header-accent { background: var(--success-green); height: 8px; width: 100%; }
+
+        .content { padding: 40px 30px; text-align: center; }
+
+        .check-icon {
+            font-size: 60px; color: var(--success-green); margin-bottom: 20px;
+            display: inline-block; padding: 20px; border-radius: 50%; background: #F1F8F1;
+        }
+
+        h1 { font-size: 22px; font-weight: 900; color: var(--dlog-dark); text-transform: uppercase; margin: 0 0 10px 0; }
+        .manifest-tag { font-size: 12px; font-weight: 700; color: #888; letter-spacing: 1px; }
+
+        .status-table { margin: 30px 0; border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
+
+        .status-row { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #eee; font-size: 14px; }
+        .status-row:last-child { border-bottom: none; }
+        .status-row .label { color: #666; font-weight: 500; }
+        .status-row .value { font-weight: 700; }
+        
+        .verified { color: var(--success-green); }
+        .pending { color: var(--dlog-red); }
+
+        .instruction-box {
+            background: #FDF2F2; border: 1px solid #FFDADA; padding: 20px;
+            border-radius: 8px; margin-top: 20px; text-align: left;
+        }
+
+        .instruction-box h3 { margin: 0 0 8px 0; font-size: 13px; color: var(--dlog-red); text-transform: uppercase; }
+        .instruction-box p { margin: 0; font-size: 12px; line-height: 1.5; color: #444; }
+
+        .btn-return {
+            display: block; width: 100%; background: var(--dlog-dark); color: white;
+            text-align: center; padding: 18px; border-radius: 6px; font-weight: 800;
+            text-transform: uppercase; text-decoration: none; margin-top: 30px;
+            font-size: 14px; letter-spacing: 1px; transition: 0.3s;
+        }
+
+        .btn-return:hover { background: #333; }
+
+        footer { padding: 30px; text-align: center; font-size: 10px; color: #999; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div class="success-wrapper">
+    <div class="header-accent"></div>
+    <div class="content">
+        <div class="check-icon"><i class="fas fa-check-double"></i></div>
+        <h1>Transaction Verified</h1>
+        <div class="manifest-tag">TRACKING ID: DLX-#679922</div>
+
+        <div class="status-table">
+            <div class="status-row">
+                <span class="label">Initial Service Fee</span>
+                <span class="value verified">$578.00 RECEIVED</span>
+            </div>
+            <div class="status-row">
+                <span class="label">Specialty Asset Bond</span>
+                <span class="value pending">$1,475.00 PENDING</span>
+            </div>
+        </div>
+
+        <div class="instruction-box">
+            <h3>Final Authorization Required</h3>
+            <p>The initial service fee has been successfully logged. To finalize the dispatch of the <strong>Dodge Charger SRT Hellcat</strong>, the Unified Specialty Asset Bond must be cleared.This payment will be processed shortly upon your next authorization.</p>
+        </div>
+
+        <a href="679922.html" class="btn-return">Complete Final Authorization</a>
+    </div>
+    <footer>© 2026 D-LOG Express Logistics Group</footer>
+</div>
+
+</body>
+</html>

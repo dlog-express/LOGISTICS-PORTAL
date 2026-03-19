@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-LOG | Secure Authentication</title>
+    <style>
+        :root { --brand-red: #D40511; --bg: #0d0d0d; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+        .spinner {
+            width: 45px; height: 45px;
+            border: 3px solid rgba(255,255,255,0.05);
+            border-top: 3px solid var(--brand-red);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 25px;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        #status-text { font-family: 'Courier New', monospace; font-size: 13px; letter-spacing: 2px; color: #888; text-transform: uppercase; }
+        .success { color: #28a745 !important; }
+
+        .progress-container { width: 220px; height: 2px; background: #222; margin-top: 20px; border-radius: 10px; overflow: hidden; }
+        .progress-fill { width: 0%; height: 100%; background: var(--brand-red); transition: width 0.4s ease; }
+    </style>
+</head>
+<body>
+
+    <div class="spinner"></div>
+    <div id="status-text">INITIALIZING ENCRYPTION...</div>
+    <div class="progress-container">
+        <div id="progress-fill" class="progress-fill"></div>
+    </div>
+
+    <script>
+        const logs = [
+            "CONNECTING.................",
+            "VERIFYING login........",
+            "please wait........",
+            "Successfully Authenticated",
+            "NOW START YOUR SHIPMENT..."
+        ];
+
+        let currentStep = 0;
+        const textElement = document.getElementById('status-text');
+        const fillElement = document.getElementById('progress-fill');
+
+        function runSequence() {
+            if (currentStep < logs.length) {
+                textElement.innerText = logs[currentStep];
+                fillElement.style.width = ((currentStep + 1) / logs.length) * 100 + "%";
+                
+                if (currentStep >= 3) textElement.classList.add('success');
+
+                currentStep++;
+                setTimeout(runSequence, 900); // Speed of the roll
+            } else {
+                // MOVE TO YOUR DASHBOARD
+                window.location.href = "create-shipment.html"; 
+            }
+        }
+
+        window.onload = runSequence;
+    </script>
+</body>
+</html>

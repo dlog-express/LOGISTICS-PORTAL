@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipment Record: 223344 | D-LOG EXPRESS</title>
+
+    <style>
+        :root { --brand-red:#D40511; --brand-dark:#1a1a1a; --soft-bg:#f4f7f9; }
+        body { font-family:'Segoe UI', Helvetica, sans-serif; background:var(--soft-bg); margin:0; padding-bottom:50px; }
+
+        header {
+            background:var(--brand-dark);
+            color:white;
+            padding:20px 5%;
+            border-bottom:4px solid var(--brand-red);
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo { font-weight:900; letter-spacing:1px; font-style:italic; }
+        .logo span { color:var(--brand-red); }
+
+        .badge {
+            background:#f0ad4e;
+            color:white;
+            padding:6px 14px;
+            border-radius:4px;
+            font-size:11px;
+            font-weight:bold;
+            text-transform:uppercase;
+        }
+
+        .main-grid {
+            max-width:1100px;
+            margin:30px auto;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:25px;
+            padding:0 20px;
+        }
+
+        .section-card {
+            background:white;
+            border-radius:8px;
+            box-shadow:0 4px 20px rgba(0,0,0,0.08);
+            overflow:hidden;
+        }
+
+        .card-header {
+            background:#fcfcfc;
+            padding:15px 25px;
+            border-bottom:1px solid #eee;
+            font-weight:bold;
+            color:#444;
+            font-size:0.9rem;
+            text-transform:uppercase;
+        }
+
+        .card-content { padding:25px; }
+
+        .image-container {
+            position:relative;
+            width:100%;
+            height:250px;
+            background:#eee;
+            border-radius:4px;
+            overflow:hidden;
+            border:1px solid #ddd;
+        }
+
+        .image-container img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .inspection-stamp {
+            position:absolute;
+            bottom:10px;
+            right:10px;
+            background:rgba(0,0,0,0.6);
+            color:white;
+            padding:5px 10px;
+            font-size:10px;
+            text-transform:uppercase;
+            border-radius:3px;
+        }
+
+        .row {
+            display:flex;
+            justify-content:space-between;
+            margin-bottom:15px;
+            border-bottom:1px solid #f2f2f2;
+            padding-bottom:8px;
+        }
+
+        .label {
+            font-size:12px;
+            color:#888;
+            text-transform:uppercase;
+        }
+
+        .val {
+            font-weight:600;
+            color:#111;
+            font-size:14px;
+            text-align:right;
+        }
+
+        .timeline {
+            position:relative;
+            padding-left:30px;
+            list-style:none;
+        }
+
+        .timeline::before {
+            content:'';
+            position:absolute;
+            left:7px;
+            top:0;
+            bottom:0;
+            width:2px;
+            background:#e1e1e1;
+        }
+
+        .step {
+            position:relative;
+            margin-bottom:30px;
+        }
+
+        .step::after {
+            content:'';
+            position:absolute;
+            left:-28px;
+            top:4px;
+            width:12px;
+            height:12px;
+            background:white;
+            border:2px solid #ddd;
+            border-radius:50%;
+        }
+
+        .step.current::after {
+            background:var(--brand-red);
+            border-color:var(--brand-red);
+        }
+
+        .step-date {
+            font-size:10px;
+            color:#999;
+            font-weight:bold;
+        }
+
+        .step-info {
+            display:block;
+            font-weight:bold;
+            color:#333;
+            margin-top:3px;
+        }
+
+        .step-desc {
+            font-size:12px;
+            color:#666;
+        }
+
+        @media (max-width:850px) {.main-grid { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">D-LOG <span>EXPRESS</span></div>
+    <div class="badge">Awaiting Payment Clearance</div>
+</header>
+
+<div class="main-grid">
+
+    <div class="left-col">
+        <div class="section-card">
+            <div class="card-header">Vehicle Details (On-Site – Pre-Dispatch)</div>
+            <div class="card-content">
+
+                <div class="image-container">
+                    <img src="lexus.jpg" alt="Lexus RX 350 SUV">
+                    <div class="inspection-stamp">On-Site Verification</div>
+                </div>
+
+                <div style="margin-top:20px;">
+                    <div class="row"><span class="label">Tracking Number</span><span class="val">223344</span></div>
+                    <div class="row"><span class="label">Vehicle</span><span class="val">Lexus RX 350 SUV (2013)</span></div>
+                    <div class="row"><span class="label">Sender</span><span class="val">Ava Amherst</span></div>
+                    <div class="row"><span class="label">Receiver</span><span class="val">NES Sayag</span></div>
+                    <div class="row"><span class="label">Final Destination</span><span class="val">5108 Broadway St.San Antonio</span></div>
+                    <div class="row"><span class="label">Receiver No.</span>+1 (210) 409 9617<span class="val"></span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="right-col">
+        <div class="section-card">
+            <div class="card-header">Shipment Status Timeline</div>
+            <div class="card-content">
+
+                <ul class="timeline">
+                    <li class="step current">
+                        <span class="step-date">MARCH 08, 2026</span>
+                        <span class="step-info">Vehicle Loading in Progress</span>
+                        <span class="step-desc">
+                            Delivery team is on-site and preparing the vehicle for dispatch.
+                            Movement is temporarily on hold pending payment clearance.
+                        </span>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-date">Pending</span>
+                        <span class="step-info">Payment Clearance</span>
+                        <span class="step-desc">
+                            Shipment will be authorized for departure immediately after payment confirmation.
+                        </span>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-date">Upcoming</span>
+                        <span class="step-info">Dispatch & Transit</span>
+                        <span class="step-desc">
+                            Vehicle will depart the pickup location and tracking will update automatically.
+                        </span>
+                    </li>
+                </ul>
+
+                <div style="margin-top:20px; background:#fff3f3; padding:15px; border:1px solid #e5bcbc; border-radius:4px; font-size:12px;">
+                    <strong>Operational Hold Notice:</strong><br>
+                    The vehicle is currently staged for dispatch.
+                    Transportation will not commence until payment has been fully cleared.
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div style="margin:30px auto; max-width:600px; padding:20px; border:2px dashed #ccc; border-radius:10px; text-align:center; background:#fff;">
+    <h3>Need Assistance?</h3>
+    <p>Our customer care team can assist with payment clearance and dispatch authorization.</p>
+
+    <button onclick="jivo_api.open();" style="background:#D40511;color:white;border:none;padding:16px 35px;font-size:15px;font-weight:bold;border-radius:5px;cursor:pointer;width:100%;">
+        💬 Contact Customer Support
+    </button>
+</div>
+
+<script src="//code.jivosite.com/widget/MIHP97F4B2" async></script>
+
+</body>
+</html>

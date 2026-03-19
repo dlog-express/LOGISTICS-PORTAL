@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>D-LOG EXPRESS | Logistics Portal</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { 
+            overflow-x: hidden; 
+            width: 100%; 
+            font-family: 'Segoe UI', -apple-system, sans-serif; 
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        /* SITE HEADER IMAGE */
+        .site-header {
+            width: 100%;
+            line-height: 0; /* Removes gap under image */
+        }
+        .site-header img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 400px; /* Limits height on desktop so it's not too huge */
+        }
+
+        /* NAVIGATION */
+        nav { 
+            background: #1a1a1a; 
+            padding: 15px 5%; 
+            border-bottom: 4px solid #D40511; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-weight: 900; color: #fff; text-decoration: none; text-transform: uppercase; font-size: 1.2rem; }
+        .logo span { color: #D40511; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 700; margin-left: 15px; text-transform: uppercase; }
+        .portal-btn { background: #D40511; padding: 8px 15px; border-radius: 4px; }
+
+        /* HERO TEXT AREA */
+        .hero-text-area { 
+            background: #f4f4f4;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .hero-text-area h1 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; color: #1a1a1a; }
+        .hero-text-area p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 25px; color: #555; }
+        .btn-primary { 
+            display: inline-block;
+            background: #D40511; 
+            color: white; 
+            padding: 18px 40px; 
+            text-decoration: none; 
+            font-weight: 900; 
+            border-radius: 4px; 
+            text-transform: uppercase;
+        }
+
+        /* SERVICES SECTION */
+        .services-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 1.8rem; font-weight: 900; text-transform: uppercase; }
+        .line { width: 50px; height: 4px; background: #D40511; margin: 10px auto; }
+
+        .service-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .service-card { 
+            background: #fff; 
+            padding: 30px; 
+            border: 1px solid #eee;
+            border-left: 5px solid #D40511;
+        }
+        .service-card h3 { font-weight: 900; text-transform: uppercase; margin-bottom: 10px; font-size: 1.1rem; }
+        .service-card p { font-size: 0.9rem; line-height: 1.6; color: #666; }
+
+        @media (min-width: 768px) {
+            .service-grid { grid-template-columns: repeat(3, 1fr); }
+            .hero-text-area h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <img src="dlog.jpg" alt="cargo vehicles">
+    </header>
+
+    <nav>
+        <a href="index.html" class="logo">D-LOG <span>EXPRESS</span></a>
+        <div class="nav-links">
+            <a href="tracking.html">Track</a>
+            <a href="login.html" class="portal-btn">login</a>
+        </div>
+    </nav>
+
+    <section class="hero-text-area">
+    <h1>Global Logistics Redefined</h1>
+    <p>Expert transport solutions for luxury vehicles and industrial heavy-lift cargo.</p>
+    <a href="login.html" class="btn-primary">Start New Shipment</a>
+</section>
+
+    <section class="services-section"><div class="section-header">
+            <h2>Our Core Expertise</h2>
+            <div class="line"></div>
+        </div>
+
+        <img src="cargo-loaded.jpg" alt="cargo truck loaded">
+  </section>
+
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Vehicle Logistics</h3>
+                <p>Expert handling for luxury vehicles, construction equipment, and fleet shipments with end-to-end visibility and RoRo capabilities.</p>
+            </div>
+            <div class="service-card">
+                <h3>Heavy-Lift Cargo</h3>
+                <p>Specialized transport for oversized industrial loads, machinery, and project cargo requiring expert documentation and handling.</p>
+            </div>
+            <div class="service-card">
+                <h3>Global Forwarding</h3>
+                <p>Seamless customs brokerage and multimodal freight solutions ensuring your high-value assets reach their destination port without delay.</p>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+
+
+    <h3 style="color: #333; margin-top: 0; font-family: sans-serif;">Need Assistance with this Shipment?</h3>
+    <p style="color: #666; font-size: 10px; margin-bottom: 20px;">Our logistics agents are available 24/7 to provide real-time updates on your shipments.</p>
+    
+    <button onclick="jivo_api.open();" style="background: #D40511; color: white; border: none; padding: 13px 34px; font-size: 11.5px; font-weight: bold; border-radius: 5px; cursor: pointer; box-shadow: 0 4px 15px rgba(212, 5, 17, 0.4); width: 100%; text-transform: uppercase; letter-spacing: 1px;">
+        💬 Chat with Customer Care Now
+    </button>
+</div>
+<script src="//code.jivosite.com/widget/MIHP97F4B2" async></script>
+</html>

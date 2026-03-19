@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-LOG Express | Global Asset Tracking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dlog-red: #D40511;
+            --dlog-dark: #121212;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .track-wrapper {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .logo h1 { font-weight: 900; text-transform: uppercase; margin-bottom: 30px; }
+        .logo span { color: var(--dlog-red); }
+
+        .input-group { position: relative; margin-bottom: 20px; }
+        
+        input {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus { border-color: var(--dlog-red); }
+
+        .btn-track {
+            width: 100%;
+            background: var(--dlog-red);
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 800;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        #status { margin-top: 20px; font-size: 14px; }
+        
+        .loading-spinner { color: var(--dlog-red); font-size: 24px; animation: spin 1s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        
+        .error-box { color: #D40511; font-weight: bold; background: #FFF0F0; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="track-wrapper">
+    <div class="logo"><h1>D-LOG <span>EXPRESS</span></h1></div>
+    <p style="color: #666; font-size: 14px; margin-bottom: 20px;">Enter your Secure Tracking ID (e.g., DLX-#648928)</p>
+    
+    <div class="input-group">
+        <input type="text" id="trackID" placeholder="DLX-#000000" autocomplete="off">
+    </div>
+    
+    <button class="btn-track" onclick="executeTracking()">Locate Shipment</button>
+    
+    <div id="status"></div>
+</div>
+
+<script>
+    function executeTracking() {
+        const input = document.getElementById('trackID');
+        const display = document.getElementById('status');
+        const code = input.value.trim(); // Now handles "DLX-#679922"
+
+        display.innerHTML = '';
+
+        if (code === "") {
+            display.innerHTML = '<div class="error-box">Please enter a valid Tracking ID.</div>';
+            return;
+        }
+
+        // List of active manifest IDs (matching your file names without the DLX- prefix)
+        const database = ["679922", "882772", "575737", "789302", "663793"];
+
+        // Extract the numerical part from the "DLX-#679922" format
+        const idOnly = code.replace("DLX-#", "");
+
+        if (database.includes(idOnly)) {
+            display.innerHTML = '<i class="fas fa-circle-notch loading-spinner"></i><br><p>Securing Connection...</p>';
+            
+            setTimeout(() => {
+                // Redirects to the corresponding .html file (e.g., 679922.html)
+                window.location.href = idOnly + ".html";
+            }, 1500);
+        } else {
+            display.innerHTML = '<div class="error-box"><i class="fas fa-exclamation-triangle"></i> ID NOT FOUND: ' + code + ' is not in our active database.</div>';
+        }
+    }
+</script>
+
+</body>
+</html>

